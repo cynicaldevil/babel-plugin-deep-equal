@@ -1,8 +1,8 @@
-const immutable_rust = (babel) => {
+const deep_equal = (babel) => {
   const t = babel.types;
   return {
     visitor: {
-      Identifier(path) {
+      BinaryExpression(path) {
         let name = path.node.name;
         // reverse the name: JavaScript -> tpircSavaJ
         path.node.name = name.split('').reverse().join('');
@@ -11,4 +11,4 @@ const immutable_rust = (babel) => {
   }
 };
 
-export default immutable_rust;
+export default deep_equal;

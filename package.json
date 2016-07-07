@@ -1,7 +1,7 @@
 {
   "name": "babel-plugin-deep-equal",
   "version": "1.0.0",
-  "description": "Babel plugin which allows users to define immutable variables; similar to Rust's binding syntax, using Immutable.js",
+  "description": "Babel plugin which allows use of triple equals operator ('===') to compare two objects",
   "main": "src/index.js",
   "scripts": {
     "build-test": "webpack --config webpack.config.test.js",
@@ -14,5 +14,6 @@
     "babel-loader": "^6.2.4",
     "babel-preset-es2015": "^6.9.0",
     "webpack": "^1.13.1"
-  }
+  },
+  "dependencies": {}
 }
