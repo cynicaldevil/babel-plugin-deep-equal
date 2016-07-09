@@ -1,11 +1,9 @@
+import deep_equal_fn from './deep_equal_fn.js';
+
 const deep_equal = (babel) => {
   const t = babel.types;
 
-  const deep_equal_sourceString = `
-    (function test() {
-      return true;
-    })()
-  `;
+  const deep_equal_sourceString = deep_equal_fn.toString();
 
   return {
     visitor: {
