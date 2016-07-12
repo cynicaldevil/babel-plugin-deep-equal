@@ -54,6 +54,10 @@ const deep_equal_fn = (obj1, obj2) => {
         return false;
     }
   }
+
+  // if control reaches till the end of the program, then the
+  // two objects don't satisfy any conditions by which they are equal
+  return false;
 };
 
 export default deep_equal_fn;
