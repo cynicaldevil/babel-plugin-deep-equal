@@ -27,6 +27,12 @@ const deep_equal_fn = (obj1, obj2) => {
     else return false;
   }
 
+  if( typeof obj1 === 'function' && typeof obj2 === 'function') {
+    if( obj1.toString() === obj2.toString())
+      return true;
+    else
+      return false;
+  }
   }
 };
 
