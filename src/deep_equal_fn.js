@@ -12,24 +12,20 @@ const deep_equal_fn = (obj1, obj2) => {
     return true;
 
   // checking for equality for Array types
-  if( Array.isArray(obj1) || Array.isArray(obj2))
+  if( Array.isArray(obj1) && Array.isArray(obj2))
   {
-    if( Array.isArray(obj1) && Array.isArray(obj2))
+    if(obj1.length === obj2.length)
     {
-      if(obj1.length === obj2.length)
-      {
-        let i;
-        for( i=0; i<obj1.length ; i++) {
-          if(!deep_equal_fn(obj1[i], obj2[i]))
-            return false;
-        }
-
-        return true;
+      let i;
+      for( i=0; i<obj1.length ; i++) {
+        if(!deep_equal_fn(obj1[i], obj2[i]))
+          return false;
       }
-      else return false;
+
+      return true;
     }
-    // if either object isn't an Array
     else return false;
+  }
 
   }
 };
