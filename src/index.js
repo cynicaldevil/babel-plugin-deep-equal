@@ -1,10 +1,15 @@
-import deep_equal_fn from './deep_equal_fn.js';
+import * as babel from 'babel-core';
 import template from "babel-template";
+
+import { deep_equal_code, nodes } from './convert_deep_equal';
 
 const deep_equal = (babel) => {
   const t = babel.types;
 
   const deep_equal_sourceString = deep_equal_fn.toString();
+  const ast = buildRequire({
+    BINARYEXP: modifiedBinaryExpr(),
+  });
 
   return {
     visitor: {
@@ -17,7 +22,7 @@ const deep_equal = (babel) => {
         t.isIdentifier(path.node.left);
         if(!returnExp)
           return;
-        path.replaceWithSourceString(deep_equal_sourceString);
+        path.replaceWith(ast);
       }
     }
   }

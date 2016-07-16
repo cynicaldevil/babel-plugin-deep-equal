@@ -1,3 +1,5 @@
+// the deep-equal algorithm to be used in place of the binary expression
+
 const deep_equal_fn = (obj1, obj2) => {
 
   // if both objects are NaN, obj1 === obj2 will return false
