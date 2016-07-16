@@ -1,6 +1,6 @@
 // the deep-equal algorithm to be used in place of the binary expression
 
-const deep_equal_fn = (obj1, obj2) => {
+deep_equal_fn = (obj1, obj2) => {
 
   // if both objects are NaN, obj1 === obj2 will return false
   if(isNaN(obj1) && isNaN(obj2) &&
@@ -60,6 +60,4 @@ const deep_equal_fn = (obj1, obj2) => {
   // if control reaches till the end of the program, then the
   // two objects don't satisfy any conditions by which they are equal
   return false;
-};
-
-export default deep_equal_fn;
+}

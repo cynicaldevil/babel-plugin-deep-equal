@@ -6,14 +6,24 @@ import { deep_equal_code, nodes } from './convert_deep_equal';
 const deep_equal = (babel) => {
   const t = babel.types;
 
-  const deep_equal_sourceString = deep_equal_fn.toString();
+  const buildRequire = template(deep_equal_code);
+  let counter = 0;
+
+  const modifiedBinaryExpr = () => {
+    const exp = t.binaryExpression("===", nodes[counter].left, nodes[counter].right);
+    counter++;
+    exp.isClean = true;
+    return exp;
+  }
+
   const ast = buildRequire({
-    BINARYEXP: modifiedBinaryExpr(),
+    BINARYEXPR: modifiedBinaryExpr(),
   });
 
   return {
     visitor: {
       BinaryExpression(path) {
+        if(path.node.isClean) return;
 
         // return if this expression is not satisfied
         // deep-equal does not perform operation on literals

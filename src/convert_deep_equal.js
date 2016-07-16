@@ -36,7 +36,7 @@ const convert_deep_equal = (babel) => {
 let src = fs.readFileSync(require('path').resolve(fileName));
 
 if(src)
-  src = src.toString();
+  src = '('+src.toString()+')();';
 
 const out = babel.transform(src, {
   plugins: [convert_deep_equal]

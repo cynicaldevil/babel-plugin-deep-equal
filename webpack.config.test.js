@@ -12,7 +12,7 @@ fs.readdirSync('node_modules')
 
 var config = {
   entry: {
-    src: ["./src/index.js"]
+    src: ["./test/test.js"]
   },
   target: 'node',
   module: {
