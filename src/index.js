@@ -32,7 +32,19 @@ const deep_equal = (babel) => {
         t.isIdentifier(path.node.left);
         if(!returnExp)
           return;
-        path.replaceWith(ast);
+        /* (() => {
+         *    //deep_equal_fn code here
+         *
+         *    return deep_equal_fn(node.left, node.right);
+         *  })();                                                  */
+        path.replaceWith(
+          t.callExpression(
+            t.arrowFunctionExpression([],
+              t.blockStatement(
+                [ast,t.returnStatement(t.callExpression(t.identifier('deep_equal_fn'),[path.node.left,path.node.right]))]
+              )
+            )
+          ,[]));
       }
     }
   }
