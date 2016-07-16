@@ -1,4 +1,5 @@
 import deep_equal_fn from './deep_equal_fn.js';
+import template from "babel-template";
 
 const deep_equal = (babel) => {
   const t = babel.types;
