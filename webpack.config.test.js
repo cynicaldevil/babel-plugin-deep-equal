@@ -12,7 +12,7 @@ fs.readdirSync('node_modules')
 
 var config = {
   entry: {
-    src: ["./test/test.js"]
+    src: ["./test/tests.js"]
   },
   target: 'node',
   module: {
@@ -24,7 +24,7 @@ var config = {
   },
   output: {
     path: path.join(__dirname, 'build'),
-    filename: 'build.js',
+    filename: 'build-test.js',
     libraryTarget: 'commonjs2'
   },
   resolve: {
