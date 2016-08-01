@@ -38,10 +38,10 @@ const deep_equal_fn = (obj1, obj2) => {
 
   if(typeof obj1 === 'object' && typeof obj2 === 'object') {
 
-    const propNamesOne = Object.getPropertyNames(obj1);
-    const propNamesTwo = Object.getPropertyNames(obj2);
+    const propNamesOne = Object.getOwnPropertyNames(obj1);
+    const propNamesTwo = Object.getOwnPropertyNames(obj2);
 
-    if(propNamesOne.length !== propNamesTwo.length(obj2))
+    if(propNamesOne.length !== propNamesTwo.length)
       return false;
 
     for(let i = 0; i<propNamesOne.length ; i++) {
@@ -50,10 +50,11 @@ const deep_equal_fn = (obj1, obj2) => {
       if(propNamesOne[i] !== propNamesTwo[i])
         return false;
 
-      const propValObj1 = obj1.propNamesOne[i];
-      const propValObj2 = obj2.propNamesTwo[i];
-      if( !deep_equal_Fn(propValObj1, propValObj2))
-        return false;
+      const propValObj1 = obj1[propNamesOne[i]];
+      const propValObj2 = obj2[propNamesTwo[i]];
+      if(deep_equal_fn(propValObj1, propValObj2))
+        return true;
+      else return false;
     }
   }
 
@@ -61,3 +62,5 @@ const deep_equal_fn = (obj1, obj2) => {
   // two objects don't satisfy any conditions by which they are equal
   return false;
 };
+
+export default deep_equal_fn;
