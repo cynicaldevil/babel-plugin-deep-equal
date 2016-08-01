@@ -15,4 +15,26 @@ describe('deep Equal', function() {
     assert.equal(deep_equal(12345, 67890), false);
 
   });
+
+  it('should check if two flat objects are equal or not', function() {
+
+    let obj1 = {
+      prop1: 'value',
+      prop2: 456,
+      prop3: true
+    };
+
+    let obj2 = {
+      prop1: 'value',
+      prop2: 456,
+      prop3: true
+    };
+
+    assert.equal(deep_equal(obj1, obj2), true);
+
+    obj2.prop2 = 123;
+
+    assert.equal(deep_equal(obj1, obj2), false);
+
+  });
 });
