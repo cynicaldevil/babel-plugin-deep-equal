@@ -44,18 +44,22 @@ const deep_equal_fn = (obj1, obj2) => {
     if(propNamesOne.length !== propNamesTwo.length)
       return false;
 
+    let equalFlag = true;
+
     for(let i = 0; i<propNamesOne.length ; i++) {
 
       // property names are always strings: so we can compare them directly
       if(propNamesOne[i] !== propNamesTwo[i])
-        return false;
+        equalFlag = false;
 
       const propValObj1 = obj1[propNamesOne[i]];
       const propValObj2 = obj2[propNamesTwo[i]];
-      if(deep_equal_fn(propValObj1, propValObj2))
-        return true;
-      else return false;
+      if(!deep_equal_fn(propValObj1, propValObj2))
+        equalFlag = false;
     }
+
+    if(equalFlag)
+      return true;
   }
 
   // if control reaches till the end of the program, then the
