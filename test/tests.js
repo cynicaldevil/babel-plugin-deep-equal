@@ -8,4 +8,11 @@ describe('deep Equal', function() {
     assert.equal(deep_equal('asdfghjkl', 'qwertyuiop'), false);
 
   });
+
+  it('should check if two numbers are equal or not', function() {
+
+    assert.equal(deep_equal(12345, 12345), true);
+    assert.equal(deep_equal(12345, 67890), false);
+
+  });
 });
