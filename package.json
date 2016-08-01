@@ -4,8 +4,7 @@
   "description": "Babel plugin which allows use of triple equals operator ('===') to compare two objects",
   "main": "src/index.js",
   "scripts": {
-    "build-test": "webpack --config webpack.config.test.js",
-    "test": "node build/build.js example.js"
+    "test": "webpack --config webpack.config.test.js && mocha build/build-test.js"
   },
   "author": "Nikhil Shagrithaya",
   "license": "ISC",
