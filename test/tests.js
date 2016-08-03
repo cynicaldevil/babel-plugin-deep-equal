@@ -37,4 +37,30 @@ describe('deep Equal', function() {
     assert.equal(deep_equal(obj1, obj2), false);
 
   });
+
+  it('should check if nested objects are equal or not', function() {
+    let obj1 = {
+      prop1: 'value',
+      prop2: {
+        nestedProp1: 'qwerty',
+        nestedProp2: false
+      },
+      prop3: 123
+    };
+
+    let obj2 = {
+      prop1: 'value',
+      prop2: {
+        nestedProp1: 'qwerty',
+        nestedProp2: false
+      },
+      prop3: 123
+    };
+
+    assert.equal(deep_equal(obj1, obj2), true);
+
+    // change value of a property in a nested object
+    obj2.prop2.nestedProp1 = 'asdfg';
+    assert.equal(deep_equal(obj1, obj2), false);
+  });
 });
