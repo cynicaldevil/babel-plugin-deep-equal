@@ -1,22 +1,22 @@
 const assert = require('chai').assert;
 import deep_equal from '../src/deep_equal_fn';
 
-describe('deep Equal', function() {
-  it('should check if two strings are equal or not', function() {
+describe('deep Equal', () => {
+  it('should check if two strings are equal or not', () => {
 
     assert.equal(deep_equal('asdfghjkl', 'asdfghjkl'), true);
     assert.equal(deep_equal('asdfghjkl', 'qwertyuiop'), false);
 
   });
 
-  it('should check if two numbers are equal or not', function() {
+  it('should check if two numbers are equal or not', () => {
 
     assert.equal(deep_equal(12345, 12345), true);
     assert.equal(deep_equal(12345, 67890), false);
 
   });
 
-  it('should check if two flat objects are equal or not', function() {
+  it('should check if two flat objects are equal or not', () => {
 
     let obj1 = {
       prop1: 'value',
@@ -38,7 +38,7 @@ describe('deep Equal', function() {
 
   });
 
-  it('should check if nested objects are equal or not', function() {
+  it('should check if nested objects are equal or not', () => {
     let obj1 = {
       prop1: 'value',
       prop2: {
