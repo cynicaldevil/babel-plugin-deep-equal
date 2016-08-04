@@ -63,4 +63,24 @@ describe('deep Equal', () => {
     obj2.prop2.nestedProp1 = 'asdfg';
     assert.equal(deep_equal(obj1, obj2), false);
   });
+
+  it('should check if two functions are equal or not', () => {
+    const func1 = (param1, param2) => {
+      console.log(param1, param2);
+    };
+
+    let func2 = (param1, param2) => {
+      console.log(param1, param2);
+    };
+
+    assert.equal(deep_equal(func1, func2), true);
+
+    // changed number of parameters
+    func2 = (param1) => {
+      console.log(param1, param2);
+    };
+
+    assert.equal(deep_equal(func1, func2), false);
+
+  });
 });
