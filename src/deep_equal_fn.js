@@ -30,7 +30,11 @@ const deep_equal_fn = (obj1, obj2) => {
   }
 
   if( typeof obj1 === 'function' && typeof obj2 === 'function') {
-    if( obj1.toString() === obj2.toString())
+    const funcStr1 = obj1.toString();
+    const funcStr2 = obj2.toString();
+    const funcBody1 = funcStr1.slice(funcStr1.indexOf('('));
+    const funcBody2 = funcStr2.slice(funcStr2.indexOf('('));
+    if( funcBody1 === funcBody2)
       return true;
     else
       return false;
